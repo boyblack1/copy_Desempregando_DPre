@@ -13,8 +13,10 @@ permissions_update
 
 #sudo docker-compose up -d postgres
 
+
 app bundle
 #app rails db:drop
 app rails db:create
+app rails rails active_storage:update
 app rails db:migrate
 app rails db:seed
