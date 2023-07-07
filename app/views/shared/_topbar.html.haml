@@ -35,11 +35,9 @@
         Auto
         %svg.bi.ms-auto.d-none{height: "1em", width: "1em"}
           %use{href: "#check2"}
-          - if user_signed_in?
-            - ruby_code = current_user.email+" - "+current_user.profile.name
 %nav.navbar.navbar-expand-lg.fixed-top.navbar-dark.bg-dark{"aria-label" => "Main navigation"}
   .container-fluid
-    %a.navbar-brand{href: root_path} Desempregando #{ruby_code} 
+    %a.navbar-brand{href: root_path} Desempregando
     
     %button#navbarSideCollapse.navbar-toggler.p-0.border-0{"aria-label" => "Toggle navigation", type: "button"}
       %span.navbar-toggler-icon
@@ -56,6 +54,10 @@
           %li.nav-item
             %a.nav-link{href: positions_url} Minhas vagas
           %li.nav-item
-            = link_to "Sair", destroy_user_session_path, method: :delete, class: 'nav-link'
-          %li.nav-item
-            %a.nav-link.active{"aria-current" => "page", :href => new_position_path, class: 'btn btn-secondary' } Publicar Vaga
+            %a.nav-link{href: new_position_path} Publicar Vaga
+    - if user_signed_in?        
+      %div.nav.navbar-nav.navbar-right
+        %li.nav-item.nav-link.active{"aria-current" => "page", :href => new_position_path, class: 'btn btn-secondary' }
+          = current_user.email+" - "+current_user.profile.name
+        %li.nav-item
+          = link_to "Sair", destroy_user_session_path, method: :delete, class: 'nav-link'

@@ -5,12 +5,13 @@ Rails.application.routes.draw do
     resources :applicants, only: [:index]
   end
   resources :applicants, only: [:new, :create]
-  
-  devise_for :users
+
+  devise_for :users, controllers: { registrations: 'user' }
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
   root 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  get "/vaga/:slug", action: :public_position, controller: :positions, as: :public_position
+
+  get "/vaga/:slug", to: "positions#public_position", as: :public_position
 end
