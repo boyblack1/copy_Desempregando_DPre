@@ -42,7 +42,7 @@ install_docker_compose() {
     else
         echo "Docker já está instalado"
     fi
-    
+
     # Verifica se o Docker Compose está instalado
     if ! [ -x "$(command -v docker-compose)" ]; then
         echo "Instalando Docker Compose"
@@ -140,33 +140,33 @@ function db(){
         sudo rm -rf docker-compose/postgres
     else
         docker-compose run postgres $@
-    fi 
+    fi
 }
 
 function remove_app(){
     # permissions_update
 
-    #para remover o app criado 
-    sudo rm -rf bin 
-    sudo rm -rf config 
-    sudo rm -rf db 
-    sudo rm -rf lib 
-    sudo rm -rf log 
-    sudo rm -rf public 
-    sudo rm -rf storage 
-    sudo rm -rf test 
-    sudo rm -rf tmp 
-    sudo rm -rf vendor 
-    sudo rm -rf app 
-    sudo rm -rf .gitattributes 
-    sudo rm -rf config.ru 
-    sudo rm -rf Gemfile.lock  
-    sudo rm -rf package.json 
-    sudo rm -rf Rakefile 
-    sudo rm -rf .ruby-version 
+    #para remover o app criado
+    sudo rm -rf bin
+    sudo rm -rf config
+    sudo rm -rf db
+    sudo rm -rf lib
+    sudo rm -rf log
+    sudo rm -rf public
+    sudo rm -rf storage
+    sudo rm -rf test
+    sudo rm -rf tmp
+    sudo rm -rf vendor
+    sudo rm -rf app
+    sudo rm -rf .gitattributes
+    sudo rm -rf config.ru
+    sudo rm -rf Gemfile.lock
+    sudo rm -rf package.json
+    sudo rm -rf Rakefile
+    sudo rm -rf .ruby-version
     sudo rm -rf Gemfile
     sudo rm -rf docker-compose/postgres
-    
+
     sudo rm -rf node_modules
     sudo rm -rf .browserslistrc
     sudo rm -rf babel.config.js
@@ -184,7 +184,7 @@ app_turbolink_remove(){
 app_config_devise_token_auth(){
     sudo sed -i "s/# config.change_headers_on_each_request = true/config.change_headers_on_each_request = true/" config/initializers/devise_token_auth.rb
     sudo sed -i "s/# config.check_current_password_before_update = :attributes/ config.check_current_password_before_update = :password/" config/initializers/devise_token_auth.rb
-    sudo sed -i "s/# config.send_confirmation_email = true/ config.send_confirmation_email = true/" config/initializers/devise_token_auth.rb 
+    sudo sed -i "s/# config.send_confirmation_email = true/ config.send_confirmation_email = true/" config/initializers/devise_token_auth.rb
 }
 
 app_config_devise(){
@@ -211,6 +211,7 @@ function permissions_update(){
     sudo chown -R $USER:$USER docker-compose/functions.sh
     # sudo chown -R $USER:$USER config/master.key
     sudo chown -R $USER:$USER db/migrate
+    sudo chown -R $USER:$USER spec
     echo permissões atualizadas!
 }
 
