@@ -9,7 +9,7 @@ class Applicant < ApplicationRecord
     today = Date.today
     dob = self.brithday.to_date
     years = today.year - dob.year
-    
+
     return nil if dob.blank?
 
     if today.month < dob.month || (today.month == dob.month && today.day < dob.day)
@@ -21,10 +21,10 @@ class Applicant < ApplicationRecord
 
   def verifica_idade
     idade = self.age
-    if (age < 13)
+    if (age <= 13)
       return "Menor"
-    elsif (idade < 13 && idade > 18)
-      return "Aprediz"
+    elsif (idade > 13 && idade < 18)
+      return "Aprendiz"
     else
       return "Efetivo"
     end
