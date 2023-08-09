@@ -11,7 +11,7 @@
       = f.error_notification
       .form-inputs
         = f.input :email, required: true, label: false, autofocus: true,  input_html: { autocomplete: "email" }, placeholder: 'E-mail'
-        = f.input :password, required: true, label: false, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" }, placeholder: 'Senha'                                
+        = f.input :password, required: true, label: false, input_html: { autocomplete: "new-password" }, placeholder: 'Senha'
         = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, placeholder: 'Repita Senha'
         = f.select :profile_id, options_for_select(Profile.pluck(:name, :id)), { prompt: "Select a profile" }, class: "form-control"
       .form-actions
