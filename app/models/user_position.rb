@@ -1,4 +1,4 @@
 class UserPosition < ApplicationRecord
-  belongs_to :user
-  belongs_to :position
+  belongs_to :User
+  belongs_to :Position
 end
