@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe UserPosition, type: :model do
+RSpec.describe Applicant, type: :model do
   describe 'verifica_idade' do
 
     it 'retorna "Menor" para age menor que 13' do
       applicant= Applicant.new(brithday: "01/01/2010")
       result= applicant.verifica_idade
-      expect(result).to eq('menor')
+      expect(result).to eq('Menor')
     end
 
     it 'retorna "Menor" para age menor que 13' do
@@ -40,4 +40,3 @@ RSpec.describe UserPosition, type: :model do
     end
   end
 end
-

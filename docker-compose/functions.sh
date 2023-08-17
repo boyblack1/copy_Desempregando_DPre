@@ -199,6 +199,7 @@ atualiza_nome_app(){
 
 function permissions_update(){
     sudo chown -R $USER:$USER app
+    sudo chown -R $USER:$USER spec
     sudo chown -R $USER:$USER .env
     sudo chown -R $USER:$USER .gitignore
     sudo chown -R $USER:$USER Dockerfile
