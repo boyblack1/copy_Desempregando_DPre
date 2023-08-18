@@ -44,8 +44,8 @@ class PositionsController < ApplicationController
   end
 
   def public_position
-    @position = Position.find_by(slug: params[:slug])
-    @applicant = current_user.applicants.new(position_id: @position.id) if user_signed_in?
+    UserPosition.create(user_id: current_user.id, position_id: params["slug"])
+    redirect_to root_path
   end
 
   private
@@ -55,7 +55,7 @@ class PositionsController < ApplicationController
   end
 
   def params_position
-    params.require(:position).permit(:name, :career, :contract, :remote, :publish, :city, :state, :summary, :description)
+    params.require(:position).permit(:name, :career, :contract, :remote, :publish, :city, :state, :summary, :description, :full_time)
   end
 
   def set_company

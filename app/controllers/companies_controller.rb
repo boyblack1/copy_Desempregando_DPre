@@ -8,6 +8,7 @@ class CompaniesController < ApplicationController
   end
 
   def create
+    # binding.pry
     @company = current_user.build_company(company_params)
     if @company.save
       flash[:notice] = 'Empresa cadastrada com sucesso'

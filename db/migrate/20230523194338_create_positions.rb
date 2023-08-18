@@ -5,6 +5,7 @@ class CreatePositions < ActiveRecord::Migration[6.0]
       t.integer :career
       t.integer :contract
       t.boolean :remote
+      t.boolean :full_time
       t.string :city
       t.string :state
       t.text :summary
