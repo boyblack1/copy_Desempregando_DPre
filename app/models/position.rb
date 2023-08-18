@@ -18,6 +18,16 @@ class Position < ApplicationRecord
     end
   end
 
+  def is_full_time
+    if self.full_time == true
+      return true
+    else
+      return false
+    end
+  end
+
+
+
 
   private
 
